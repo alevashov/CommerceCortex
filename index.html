@@ -20,6 +20,9 @@
     <script>
       new WOW().init();
     </script>
+	<script type="text/javascript">
+        var submitted = false;
+    </script>
   </head>
   <body>
     <!-- ====== Navbar Section Start -->
@@ -4560,7 +4563,7 @@
               </div>
             </div>
           </div>
-         <!--  <div class="w-full px-4 lg:w-5/12 xl:w-4/12">
+         <div class="w-full px-4 lg:w-5/12 xl:w-4/12">
             <div
               class="wow fadeInUp rounded-lg bg-white py-10 px-8 shadow-testimonial sm:py-12 sm:px-10 md:p-[60px] lg:p-10 lg:py-12 lg:px-10 2xl:p-[60px]"
               data-wow-delay=".2s
@@ -4569,14 +4572,14 @@
               <h3 class="mb-8 text-2xl font-semibold md:text-[26px]">
                 Send us a Message
               </h3>
-              <form>
+<form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfdwAHIjtc6IjpQ-YicnAuFl8435r6uzmuY41b_PlT2l-REoQ/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
                 <div class="mb-6">
                   <label for="fullName" class="block text-xs text-dark"
                     >Full Name*</label
                   >
                   <input
                     type="text"
-                    name="fullName"
+                    name="entry.424334113"
                     placeholder="Adam Gelius"
                     class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
                   />
@@ -4587,7 +4590,7 @@
                   >
                   <input
                     type="email"
-                    name="email"
+                    name="entry.1979600705"
                     placeholder="example@yourmail.com"
                     class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
                   />
@@ -4598,7 +4601,7 @@
                   >
                   <input
                     type="text"
-                    name="phone"
+                    name="entry.928763017"
                     placeholder="+885 1254 5211 552"
                     class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
                   />
@@ -4608,7 +4611,7 @@
                     >Message*</label
                   >
                   <textarea
-                    name="message"
+                    name="entry.1566736882"
                     rows="1"
                     placeholder="type your message here"
                     class="w-full resize-none border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
@@ -4623,6 +4626,7 @@
                   </button>
                 </div>
               </form>
+			  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='thankyou.html';}"></iframe>
             </div>
           </div>
         </div> -->
