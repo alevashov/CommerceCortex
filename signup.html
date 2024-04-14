@@ -173,7 +173,7 @@
             </div>
             <div class="hidden justify-end pr-16 sm:flex lg:pr-0">
               <a
-                href="https://magento2-sandbox.magestage.net"
+                href="https://openai.magestage.net"
                 class="loginBtn py-3 px-7 text-base font-medium text-white hover:opacity-70"
 				target="_blank"
               >
@@ -200,8 +200,11 @@
         <div class="-mx-4 flex flex-wrap items-center">
           <div class="w-full px-4">
             <div class="text-center">
-              <h1 class="text-4xl font-semibold text-white">We are working hard to complete our initial version. <br>
-			  Sign-up to our mail list and get notified when we launch!</h1>
+              <h1 class="text-4xl font-semibold text-white">Join our pilot program! <br>
+			  Our pilot merchants get the chatbot solution free of charge for 6 months.	<br>
+			  You only pay for 3rd party services required for a chatbot to run (LLM via OpenAI or AWS Bedrock) and if required Qdrand Vector DB.<br>
+			  In exchange you agree to share the results and participate in case studies.
+			  </h1>
             </div>
           </div>
         </div>
@@ -286,10 +289,10 @@
               <div class="mb-10 text-center">
                 <img src="assets/images/logo/logo.svg" alt="logo" />
 				<br>
-				<p class="mb-6 text-base text-black font-bold text-left"> Fill the form below and we'll drop you email when our solution is ready to use!</p>
+				<p class="mb-6 text-base text-black font-bold text-left"> Fill the form below and we'll come back to you!</p>
                 
               </div>
-              <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdjXXorCiKS4dWbfJec_NBQ-aR5AmQ5SIBplooZJ8o9QvpAIw/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+ <!--              <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdjXXorCiKS4dWbfJec_NBQ-aR5AmQ5SIBplooZJ8o9QvpAIw/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
 			  
                 <div class="mb-6">
                   <input
@@ -313,6 +316,60 @@
                     value="Sign Up"
                     class="bordder-primary w-full cursor-pointer rounded-md border bg-primary py-3 px-5 text-base text-white transition duration-300 ease-in-out hover:shadow-md"
                   />
+                </div>
+              </form> -->
+			  <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfdwAHIjtc6IjpQ-YicnAuFl8435r6uzmuY41b_PlT2l-REoQ/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+                <div class="mb-6">
+                  <label for="fullName" class="block text-xs text-dark"
+                    >Full Name*</label
+                  >
+                  <input
+                    type="text"
+                    name="entry.424334113"
+                    placeholder="Adam Gelius"
+                    class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
+                  />
+                </div>
+                <div class="mb-6">
+                  <label for="email" class="block text-xs text-dark"
+                    >Email*</label
+                  >
+                  <input
+                    type="email"
+                    name="entry.1979600705"
+                    placeholder="example@yourmail.com"
+                    class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
+                  />
+                </div>
+                <div class="mb-6">
+                  <label for="phone" class="block text-xs text-dark"
+                    >Phone*</label
+                  >
+                  <input
+                    type="text"
+                    name="entry.928763017"
+                    placeholder="+885 1254 5211 552"
+                    class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
+                  />
+                </div>
+                <div class="mb-6">
+                  <label for="message" class="block text-xs text-dark"
+                    >Message*</label
+                  >
+                  <textarea
+                    name="entry.1566736882"
+                    rows="1"
+                    placeholder="type your message here"
+                    class="w-full resize-none border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
+                  ></textarea>
+                </div>
+                <div class="mb-0">
+                  <button
+                    type="submit"
+                    class="inline-flex items-center justify-center rounded bg-primary py-4 px-6 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-dark"
+                  >
+                    Send Message
+                  </button>
                 </div>
               </form>
 				<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='thankyou-maillist.html';}"></iframe>
@@ -873,7 +930,7 @@
             <div class="w-full px-4 md:w-1/3 lg:w-1/2">
               <div class="my-1 flex justify-center md:justify-end">
                 <p class="text-base text-[#f3f4fe]">
-                  &copy; 2023 Commerce Cortex                  
+                  &copy; 2024 Commerce Cortex                  
                 </p>
               </div>
             </div>
