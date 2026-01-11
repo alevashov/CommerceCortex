@@ -4,9 +4,7 @@
   "description": "",
   "main": "tailwind.config.js",
   "scripts": {
-    "build-css": "tailwindcss -i ./src/tailwind.css -o ./assets/css/tailwind.css -w",
-    "build-pages": "node scripts/build-pages.mjs",
-    "build": "npm run build-pages"
+    "build-css": "tailwindcss -i ./src/tailwind.css -o ./assets/css/tailwind.css -w"
   },
   "repository": {
     "type": "git",
