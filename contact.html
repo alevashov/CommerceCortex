@@ -18,9 +18,11 @@
     <script>
       new WOW().init();
     </script>
-	<script type="text/javascript">
-        var submitted = false;
-    </script>
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
+      defer
+    ></script>
   </head>
   <body>
     <!-- ====== Navbar Section Start -->
@@ -339,7 +341,7 @@
               <h3 class="mb-8 text-2xl font-semibold md:text-[26px]">
                 Send us a Message
               </h3>
-              <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfdwAHIjtc6IjpQ-YicnAuFl8435r6uzmuY41b_PlT2l-REoQ/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+              <form action="/api/contact" method="POST">
                 <div class="mb-6">
                   <label for="fullName" class="block text-xs text-dark"
                     >Full Name*</label
@@ -385,6 +387,12 @@
                   ></textarea>
                 </div>
                 <div class="mb-0">
+                  <div class="mb-6">
+                    <div
+                      class="cf-turnstile"
+                      data-sitekey="YOUR_TURNSTILE_SITE_KEY"
+                    ></div>
+                  </div>
                   <button
                     type="submit"
                     class="inline-flex items-center justify-center rounded bg-primary py-4 px-6 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-dark"
@@ -393,7 +401,6 @@
                   </button>
                 </div>
               </form>
-			  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='thankyou.html';}"></iframe>
             </div>
           </div>
         </div>
