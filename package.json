@@ -1,18 +1,12 @@
 {
-  "name": "play-tailwind",
+  "name": "commercecortex-website",
   "version": "1.0.0",
-  "description": "",
-  "main": "tailwind.config.js",
+  "private": true,
+  "description": "CommerceCortex marketing website (static HTML + Tailwind CSS, hosted on Cloudflare Pages)",
   "scripts": {
-    "build-css": "tailwindcss -i ./src/tailwind.css -o ./assets/css/tailwind.css -w"
+    "build-css": "tailwindcss -i ./src/tailwind.css -o ./assets/css/tailwind.css --minify",
+    "watch-css": "tailwindcss -i ./src/tailwind.css -o ./assets/css/tailwind.css --watch"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/uideck/play-tailwind.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
     "prettier": "^2.6.2",
     "prettier-plugin-tailwindcss": "^0.1.9",

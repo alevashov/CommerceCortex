@@ -1,21 +1,50 @@
-# Play - Free Tailwind CSS Template for Startup, Apps and SaaS
+# CommerceCortex website
 
-Play is an open-source and free Tailwind CSS template co-created by TailGrids and UIdeck. This template specially crafted for SaaS, startup, business and software website.
-Play crafted in a way that you can use with almost all sort of web project. This is Tailwind CSS version of our old [Bootstrap](https://preview.uideck.com/items/play-bootstrap/) project.
+Marketing site for [CommerceCortex](https://commercecortex.net): static HTML pages styled with Tailwind CSS, hosted on Cloudflare Pages.
 
-### This template crafted using 🥞 [TailGrids](https://tailgrids.com/) UI components
+## Pages
 
-### [🚀 View Demo](https://play-tailwind.tailgrids.com/)
+| File | Purpose |
+| --- | --- |
+| `index.html` | Home page: product, pricing, FAQ, team, contact form |
+| `signup.html` | Sign-up / enquiry page |
+| `privacy-policy.html` | Privacy policy |
+| `thankyou.html`, `thankyou-maillist.html` | Shown after a form is submitted |
+| `404.html` | Not-found page (Cloudflare Pages serves it automatically) |
 
-### [⬇️ Download Now](https://links.tailgrids.com/play-download)
+## Contact forms
 
-[![play-tailwind](https://cdn.tailgrids.com/play-tailwind.jpg)](https://play-tailwind.tailgrids.com/)
+Both forms post to `/api/contact`, a Cloudflare Pages Function (`functions/api/contact.js`). It:
 
-## 📃 License
+1. checks the Cloudflare Turnstile token (spam protection);
+2. forwards the fields to the Google Form;
+3. redirects to the thank-you page named in the form's hidden `_next` field.
 
-Play is an open-source template, you can use it with your personal or commercial projects without any attribution or backlink.
+Cloudflare Pages environment variables:
 
-## 💙 Support
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `TURNSTILE_SECRET` | yes | Turnstile secret key |
+| `GOOGLE_FORM_URL` | recommended | Google Form `formResponse` URL. Falls back to the URL in the code if not set. |
 
-You can always support this project by [Starring🌟 This Repository](https://github.com/tailgrids/play-tailwind)
-and sharing with friends. Also open an issue if you find bug or feel free to contribute by pull requests after fixing any issue or adding more values.
+The Turnstile **site key** (public) is in the `data-sitekey` attribute of the `cf-turnstile` element in `index.html` and `signup.html`.
+
+## Styles
+
+Edit classes in the HTML, then rebuild the CSS (requires Node.js):
+
+```
+npm install
+npm run build-css     # one-off, minified
+npm run watch-css     # rebuild on every change while editing
+```
+
+Source: `src/tailwind.css`, config: `tailwind.config.js`, output: `assets/css/tailwind.css` (committed, because the site has no build step on deploy).
+
+## Deploying
+
+Cloudflare Pages deploys from this repository. There is no build command; the output directory is the repository root.
+
+## Credits
+
+Based on the free [Play Tailwind template](https://github.com/tailgrids/play-tailwind) by TailGrids and UIdeck (MIT licence, see `LICENSE`).
