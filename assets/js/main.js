@@ -1,9 +1,15 @@
 (function () {
   "use strict";
 
+  // ======= Current year in footer
+  document.querySelectorAll("[data-year]").forEach((el) => {
+    el.textContent = new Date().getFullYear();
+  });
+
   // ======= Sticky
   window.onscroll = function () {
     const ud_header = document.querySelector(".ud-header");
+    if (!ud_header) return;
     const sticky = ud_header.offsetTop;
     const logo = document.querySelector(".header-logo");
 
@@ -14,7 +20,9 @@
     }
 
     // === logo change
-    if (ud_header.classList.contains("sticky")) {
+    if (!logo) {
+      // page without a switchable logo
+    } else if (ud_header.classList.contains("sticky")) {
       logo.src = "assets/images/logo/logo.svg";
     } else {
       logo.src = "assets/images/logo/logo-white.svg";
@@ -22,6 +30,7 @@
 
     // show or hide the back-top-top button
     const backToTop = document.querySelector(".back-to-top");
+    if (!backToTop) return;
     if (
       document.body.scrollTop > 50 ||
       document.documentElement.scrollTop > 50
@@ -36,16 +45,19 @@
   let navbarToggler = document.querySelector("#navbarToggler");
   const navbarCollapse = document.querySelector("#navbarCollapse");
 
-  navbarToggler.addEventListener("click", () => {
-    navbarToggler.classList.toggle("navbarTogglerActive");
-    navbarCollapse.classList.toggle("hidden");
-  });
+  if (navbarToggler && navbarCollapse) {
+    navbarToggler.addEventListener("click", () => {
+      navbarToggler.classList.toggle("navbarTogglerActive");
+      navbarCollapse.classList.toggle("hidden");
+    });
+  }
 
   //===== close navbar-collapse when a  clicked
   document
     .querySelectorAll("#navbarCollapse ul li:not(.submenu-item) a")
     .forEach((e) =>
       e.addEventListener("click", () => {
+        if (!navbarToggler || !navbarCollapse) return;
         navbarToggler.classList.remove("navbarTogglerActive");
         navbarCollapse.classList.add("hidden");
       })
@@ -69,7 +81,7 @@
   });
 
   // ===== wow js
-  new WOW().init();
+  if (typeof WOW !== "undefined") new WOW().init();
 
   // ====== scroll top js
   function scrollTo(element, to = 0, duration = 500) {
@@ -100,7 +112,10 @@
     return (-c / 2) * (t * (t - 2) - 1) + b;
   };
 
-  document.querySelector(".back-to-top").onclick = () => {
-    scrollTo(document.documentElement);
-  };
+  const backToTopBtn = document.querySelector(".back-to-top");
+  if (backToTopBtn) {
+    backToTopBtn.onclick = () => {
+      scrollTo(document.documentElement);
+    };
+  }
 })();
