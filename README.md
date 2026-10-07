@@ -24,10 +24,13 @@ Cloudflare Pages environment variables:
 
 | Variable | Required | Purpose |
 | --- | --- | --- |
+| `TURNSTILE_SITE_KEY` | yes | Turnstile site key (public). `functions/_middleware.js` inserts it into the form widget on the home and sign-up pages. |
 | `TURNSTILE_SECRET` | yes | Turnstile secret key |
 | `GOOGLE_FORM_URL` | recommended | Google Form `formResponse` URL. Falls back to the URL in the code if not set. |
 
-The Turnstile **site key** (public) is in the `data-sitekey` attribute of the `cf-turnstile` element in `index.html` and `signup.html`.
+In the HTML, `data-sitekey` holds a placeholder; the real key comes from `TURNSTILE_SITE_KEY` at serve time. `_routes.json` limits Functions to the pages that need them and `/api/*`. After changing a variable in Cloudflare, redeploy for it to take effect.
+
+To test locally: `npx wrangler pages dev . --binding TURNSTILE_SITE_KEY=1x00000000000000000000AA --binding TURNSTILE_SECRET=1x0000000000000000000000000000000AA` (Cloudflare's always-pass test keys).
 
 ## Styles
 
